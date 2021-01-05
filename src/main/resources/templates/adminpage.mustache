@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--    <link rel="stylesheet" type="text/css" href="/loginStyle/css/main.css">-->
+    <link rel="stylesheet" type="text/css" href="/adminStyle/adminpageStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admin page</title>
+</head>
+<body>
+<div class="container-adminTable">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+
+<ul class="nav">
+    <li class="nav-item">
+        <a class="btn btn-dark" href="/registrationform">Add new user</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-danger" href="/logout">Logout</a>
+    </li>
+</ul>
+    <p class="navbar-brand col-9 text-right">{{userNameLogin}}</p>
+</nav>
+
+<div class="header-h1 header-h1-dark">
+    <h1>Admin page</h1>
+</div>
+
+<div>
+    <form method="post" action="/adminpage">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button class="btn btn-warning" name="userStatus" value="blocked"><i class="fa fa-lock"></i></button>
+            <button class="btn btn-success" name="userStatus" value="unblocked"><i class="fa fa-unlock"></i></button>
+            <button class="btn btn-danger" name="userDelete" value="delete"><i class="fa fa-trash"></i></button>
+        </div>
+
+<table class="table table-bordered table-dark">
+    <thead>
+    <tr>
+        <th scope="col"> <input id="selAll" type="checkbox" onclick="check()">Select All</th>
+        <th scope="col">Id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Create date user</th>
+        <th scope="col">Last login date</th>
+        <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#reg}}
+        <tr>
+            <td><input type="checkbox"  value="{{id}}" name="chBox"></td>
+            <td>{{id}}</td>
+            <td>{{username}}</td>
+            <td>{{email}}</td>
+            <td>{{dateCreate}}</td>
+            <td>{{dateLogin}}</td>
+            <td>{{status}}</td>
+        </tr>
+    {{/reg}}
+    </tbody>
+</table>
+        </form>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="tableCheck.js"></script>
+</body>
+</html>
